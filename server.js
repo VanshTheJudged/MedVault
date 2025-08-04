@@ -19,11 +19,12 @@ app.use(helmet());
 app.use('/api/auth', authRoutes);
 app.use('/api/report', uploadRoutes);
 
-// Serve static frontend AFTER routes
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files
+app.use(express.static(path.join(__dirname, "public")));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'home.html'));
+// Route fallback to home.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "home.html"));
 });
 
 // Mongo connection
