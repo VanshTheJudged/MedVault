@@ -8,7 +8,7 @@ const token = localStorage.getItem("token");
       const response = await fetch("https://medvault-production.up.railway.app/api/report/download", {
         method: "GET",
         headers: {
-          "Authorization": token
+          "Authorization": `Bearer ${token}`
         }
       });
 

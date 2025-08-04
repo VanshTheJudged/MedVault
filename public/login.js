@@ -15,7 +15,6 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token);
-        <div id="toast">Login successful!</div>
         window.location.href = 'home.html';
       } else {
         alert('Login failed: ' + data.message);
