@@ -5,7 +5,7 @@ const token = localStorage.getItem("token");
     }
 
     document.getElementById("downloadPdfBtn").onclick = async () => {
-      const response = await fetch("https://medvault-production.up.railway.app/api/report/download-pdf", {
+      const response = await fetch("https://medvault-production.up.railway.app/api/report/download", {
         method: "GET",
         headers: {
           "Authorization": token

@@ -15,9 +15,19 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token);
-        alert('Login successful');
+        <div id="toast">Login successful!</div>
         window.location.href = 'home.html';
       } else {
         alert('Login failed: ' + data.message);
       }
     });
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = msg;
+  toast.style.display = 'block';
+  setTimeout(() => {
+    toast.style.display = 'none';
+  }, 5000);
+}
