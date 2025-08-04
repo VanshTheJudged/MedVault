@@ -1,0 +1,93 @@
+/* Global reset and font */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(145deg, #f0e8ff, #e6f7ff);
+  overflow-x: hidden;
+}
+
+h2 {
+  color: #6d55c1;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+form, .container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 400px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+input, button {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 1rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+button {
+  background: #b47cf7;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #9e5df1;
+}
+
+a {
+  color: #6d55c1;
+  text-decoration: none;
+}
+
+/* Toast message styles */
+#toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6d55c1;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+  display: none;
+  animation: fadeInOut 5s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  10%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+
+/* Floating SVG background */
+.svg-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.svg-background svg {
+  position: absolute;
+  animation: float 10s infinite ease-in-out;
+  opacity: 0.1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); }
+}
