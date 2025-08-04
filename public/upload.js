@@ -9,7 +9,7 @@ document.getElementById('uploadForm').addEventListener('submit', async (e) => {e
       const formData = new FormData();
       formData.append('report', document.getElementById('report').files[0]);
 
-      const res = await fetch('https://medvault-production.up.railway.app/api/report/upload', {
+      const res = await fetch("/api/report/upload", {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
