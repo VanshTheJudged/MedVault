@@ -19,19 +19,19 @@ app.use(helmet());
 app.use('/api/auth', authRoutes);
 app.use('/api/report', uploadRoutes);
 
-// Serve static files
-app.use(express.static(path.join(__dirname, "public")));
+// ✅ Serve all frontend HTML/CSS/JS from "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Route fallback to home.html
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "home.html"));
+// ✅ Define routes to serve specific HTML files (if needed)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Mongo connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('MongoDB connected');
-    const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 8080;
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
   })
